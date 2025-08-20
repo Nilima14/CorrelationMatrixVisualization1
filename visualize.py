@@ -1,18 +1,28 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sns
 
-# Load the correlation matrix
-df = pd.read_csv("correlation.csv", index_col=0)
+def main():
+    # Load the dataset
+    df = pd.read_csv("correlation.csv")
 
-# Plot the heatmap
-plt.figure(figsize=(8, 6))
-plt.imshow(df, cmap="coolwarm", interpolation="nearest")
-plt.colorbar(label="Correlation")
-plt.xticks(range(len(df.columns)), df.columns, rotation=45, ha="right")
-plt.yticks(range(len(df.index)), df.index)
-plt.title("Correlation Matrix Heatmap")
-plt.tight_layout()
+    # Compute the correlation matrix
+    corr = df.corr()
 
-# Save the figure
-plt.savefig("correlation_matrix.png")
-plt.show()
+    # Set up the matplotlib figure
+    plt.figure(figsize=(10, 8))
+
+    # Generate a heatmap with annotations
+    sns.heatmap(corr, annot=True, cmap="coolwarm", fmt=".2f", cbar=True)
+
+    # Add title
+    plt.title("Correlation Matrix Heatmap", fontsize=16)
+
+    # Save the heatmap to a file
+    plt.savefig("correlation_matrix.png", dpi=300, bbox_inches="tight")
+
+    # Show the plot (optional)
+    # plt.show()
+
+if __name__ == "__main__":
+    main()
