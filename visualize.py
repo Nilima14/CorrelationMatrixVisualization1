@@ -6,23 +6,23 @@ def main():
     # Load the dataset
     df = pd.read_csv("correlation.csv")
 
-    # Compute the correlation matrix
-    corr = df.corr()
+    # Keep only numeric columns for correlation
+    numeric_df = df.select_dtypes(include=["number"])
 
-    # Set up the matplotlib figure
+    if numeric_df.empty:
+        raise ValueError("No numeric columns found in correlation.csv for correlation matrix.")
+
+    # Compute correlation matrix
+    corr = numeric_df.corr()
+
+    # Plot the heatmap
     plt.figure(figsize=(10, 8))
-
-    # Generate a heatmap with annotations
     sns.heatmap(corr, annot=True, cmap="coolwarm", fmt=".2f", cbar=True)
 
-    # Add title
-    plt.title("Correlation Matrix Heatmap", fontsize=16)
-
-    # Save the heatmap to a file
+    # Save the plot
+    plt.title("Correlation Matrix Heatmap")
     plt.savefig("correlation_matrix.png", dpi=300, bbox_inches="tight")
-
-    # Show the plot (optional)
-    # plt.show()
+    plt.close()
 
 if __name__ == "__main__":
     main()
