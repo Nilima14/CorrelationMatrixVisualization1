@@ -14,5 +14,5 @@ Make sure the file exists in the repository root.
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/Nilima14/CorrelationMatrixVisualization.git
-   cd CorrelationMatrixVisualization
+   git clone https://github.com/Nilima14/CorrelationMatrixVisualization1.git
+   cd CorrelationMatrixVisualization1
