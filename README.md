@@ -1,18 +1,15 @@
 # Correlation Matrix Visualization
 
-This project visualizes correlations between numerical features using a correlation matrix.
+**Email (for validation): 23f1000504@ds.study.iitm.ac.in**
+
+This project visualizes correlations between numerical features using a correlation matrix and saves:
+- `correlation.csv` — the correlation matrix
+- `heatmap.png` — a Red–White–Green conditional-format heatmap (400–512 px)
 
 ## Dataset
-
-The dataset used in this project is provided in the file:
-
-- [correlation.csv](correlation.csv)
-
-Make sure the file exists in the repository root.
+Place your numeric dataset at the root as `data.csv` (or directly provide a precomputed `correlation.csv`).
 
 ## How to Run
-
-1. Clone this repository:
+1. Install dependencies:
    ```bash
-   git clone https://github.com/Nilima14/CorrelationMatrixVisualization1.git
-   cd CorrelationMatrixVisualization1
+   pip install -r requirements.txt
